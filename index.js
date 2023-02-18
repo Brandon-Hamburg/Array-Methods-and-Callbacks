@@ -8,8 +8,6 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 //(a) Home Team name for 2014 world cup final
 const homeTeam2014 = fifaData.filter(x=>x.Year === 2014 && x.Stage === 'Final')[0]['Home Team Name'];
 console.log(homeTeam2014);
-
-
 //(b) Away Team name for 2014 world cup final
 const awayTeam2014 = fifaData.filter(x=>x.Year === 2014 && x.Stage === 'Final')[0]['Away Team Name'];
 console.log(awayTeam2014);
@@ -62,14 +60,14 @@ Use the higher-order function getWinners to do the following:
 4. Returns the names of all winning countries in an array called `winners` */ 
 
 function getWinners(arr, cb) {
-   const winner = cb(arr).map(x => {
+   const winners = cb(arr).map(x => {
         if(x['Home Team Goals'] > x['Away Team Goals']) {
             return x['Home Team Name'];
         } else {
             return x['Away Team Name'];
         }
    });
-   return winner;
+   return winners;
 };
 console.log("Task 4", getWinners(fifaData, getFinals))
 
